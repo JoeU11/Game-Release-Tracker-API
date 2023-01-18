@@ -9,8 +9,9 @@ class GamesController < ApplicationController
 
   def create
     game = Game.new(name: params[:name], description: params[:description], anticipation: params[:anticipation])
-    if params[:year]
-      game.release_date = DateTime.new(params[:year], params[:month], params[:day])
+    if params[:release_date] != ""
+      parsed_date = params[:release_date].split('-')
+      game.release_date = DateTime.new(parsed_date[0].to_i, parsed_date[1].to_i, parsed_date[2].to_i)
     end
     game.save
     render json: game.as_json
