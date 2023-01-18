@@ -1,0 +1,33 @@
+get http://localhost:3000/games.json
+
+###
+get http://localhost:3000/games/2.json
+
+###
+POST http://localhost:3000/games.json
+Content-Type: application/json
+
+{
+  "name": "test title",
+  "description": "test description",
+  "year": 2023,
+  "month": 2,
+  "day": 1,
+  "anticipation": 6
+}
+
+###
+patch http://localhost:3000/games/4.json
+Content-Type: application/json
+
+{
+  "name": "test",
+  "description": "test",
+  "year": 2023,
+  "month": 2,
+  "day": 1,
+  "anticipation": 6
+}
+
+###
+delete http://localhost:3000/games/4
